@@ -1,8 +1,29 @@
 const mapFrame = document.getElementById('map');
 const navbar = document.getElementById('navbar');
-const creativeLink = document.getElementById('creative-link');
-const survivalLink = document.getElementById('survival-link');
-const monarchLink = document.getElementById('monarch-link');
+
+const maps = [
+    {
+        url: 'https://creativemap.pcbmc.co',
+        linkElement: document.getElementById('creative-link'),
+    },
+    {
+        url: 'https://survivalmap.pcbmc.co',
+        linkElement: document.getElementById('survival-link'),
+    },
+    {
+        url: 'https://3d.pcbmc.co',
+        linkElement: document.getElementById('monarch-link'),
+    },
+]
+
+function setActiveLink(map) {
+    maps.forEach((map) => {
+        map.linkElement.classList.remove('active');
+    });
+    map.linkElement.classList.add('active');
+
+    mapFrame.src = map.url;
+}
 
 function resizeMapFrame() {
     // Compensate for browser inconsistency
@@ -14,18 +35,9 @@ function resizeMapFrame() {
     mapFrame.height = windowHeight - navbar.offsetHeight;
 }
 
-function setActiveLink(element) {
-    survivalLink.classList.remove('active');
-    creativeLink.classList.remove('active');
-    monarchLink.classList.remove('active');
-
-    element.classList.add('active');
-}
-
 window.onload = () => {
-    mapFrame.src = 'https://creativemap.pcbmc.co';
     resizeMapFrame();
-    setActiveLink(creativeLink);
+    setActiveLink(maps[0]);
 }
 
 // Force resize as soon as possible, because onload fires quite late
@@ -37,17 +49,6 @@ document.onreadystatechange = (event) => {
 
 window.onresize = resizeMapFrame
 
-creativeLink.addEventListener('click', () => {
-    mapFrame.src = 'https://creativemap.pcbmc.co';
-    setActiveLink(creativeLink);
-})
-
-survivalLink.addEventListener('click', () => {
-    mapFrame.src= 'https://survivalmap.pcbmc.co';
-    setActiveLink(survivalLink);
-})
-
-monarchLink.addEventListener('click', () => {
-    mapFrame.src= 'https://3d.pcbmc.co';
-    setActiveLink(monarchLink);
-})
+maps.forEach((map) => {
+    map.linkElement.addEventListener('click', () => setActiveLink(map))
+});
