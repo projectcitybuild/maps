@@ -21,7 +21,7 @@ function setActiveLink(element) {
 }
 
 window.onload = () => {
-    mapFrame.src = 'https://maps.pcbmc.co';
+    mapFrame.src = 'https://pcbmc.co:8123';
     resizeMapFrame();
     setActiveLink(creativeLink);
 }
@@ -36,7 +36,7 @@ document.onreadystatechange = (event) => {
 window.onresize = resizeMapFrame
 
 creativeLink.addEventListener('click', () => {
-    mapFrame.src = 'https://maps.pcbmc.co';
+    mapFrame.src = 'https://pcbmc.co:8123';
     setActiveLink(creativeLink);
 })
 
