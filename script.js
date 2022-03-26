@@ -21,7 +21,7 @@ function setActiveLink(element) {
 }
 
 window.onload = () => {
-    mapFrame.src = 'https://pcbmc.co:8123';
+    mapFrame.src = 'https://creativemap.pcbmc.co';
     resizeMapFrame();
     setActiveLink(creativeLink);
 }
@@ -36,11 +36,11 @@ document.onreadystatechange = (event) => {
 window.onresize = resizeMapFrame
 
 creativeLink.addEventListener('click', () => {
-    mapFrame.src = 'https://pcbmc.co:8123';
+    mapFrame.src = 'https://creativemap.pcbmc.co';
     setActiveLink(creativeLink);
 })
 
 survivalLink.addEventListener('click', () => {
-    mapFrame.src= 'https://pcbmc.co:8124';
+    mapFrame.src= 'https://survivalmap.pcbmc.co';
     setActiveLink(survivalLink);
 })
