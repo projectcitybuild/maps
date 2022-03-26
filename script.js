@@ -41,6 +41,6 @@ creativeLink.addEventListener('click', () => {
 })
 
 survivalLink.addEventListener('click', () => {
-    mapFrame.src= 'http://pcbmc.co:8124';
+    mapFrame.src= 'https://pcbmc.co:8124';
     setActiveLink(survivalLink);
 })
