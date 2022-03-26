@@ -2,6 +2,7 @@ const mapFrame = document.getElementById('map');
 const navbar = document.getElementById('navbar');
 const creativeLink = document.getElementById('creative-link');
 const survivalLink = document.getElementById('survival-link');
+const monarchLink = document.getElementById('monarch-link');
 
 function resizeMapFrame() {
     // Compensate for browser inconsistency
@@ -16,6 +17,7 @@ function resizeMapFrame() {
 function setActiveLink(element) {
     survivalLink.classList.remove('active');
     creativeLink.classList.remove('active');
+    monarchLink.classList.remove('active');
 
     element.classList.add('active');
 }
@@ -43,4 +45,9 @@ creativeLink.addEventListener('click', () => {
 survivalLink.addEventListener('click', () => {
     mapFrame.src= 'https://survivalmap.pcbmc.co';
     setActiveLink(survivalLink);
+})
+
+monarchLink.addEventListener('click', () => {
+    mapFrame.src= 'https://3d.pcbmc.co';
+    setActiveLink(monarchLink);
 })
