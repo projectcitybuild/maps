@@ -37,6 +37,7 @@ nav.navbar li {
 nav.navbar a {
     padding: 0.5em 1em;
     text-transform: uppercase;
+    text-decoration: none;
     color: #fff;
 }
 
@@ -47,8 +48,26 @@ nav.navbar a.active {
 }
 
 nav.navbar img {
-    /* Logo is off-center */
-    padding-top: 5px;
+    height: 28px;
+    display: flex;
+}
+
+
+nav.navbar a:hover,nav.navbar a:focus {
+    background-color: #61534c;
+}
+
+#logo-link {
+    padding: 0 1em;
+    min-width: unset;
+}
+
+#logo-mobile {
+    display: none;
+}
+
+nav.navbar i {
+    display: none;
 }
 
 #map {
@@ -59,4 +78,32 @@ nav.navbar img {
 iframe {
     margin: 0;
     padding: 0;
+}
+
+@media screen and (max-width: 767px) {
+    #logo {
+        display: none;
+    }
+
+    #logo-mobile {
+        display: block;
+        
+    }
+
+    nav.navbar a {
+        font-size: 0.6rem;
+        text-align: center;
+        min-width: 52px;
+    }
+
+    nav.navbar i {
+        display: block;
+        font-size: 1rem;
+        font-size: 1.25rem;
+        font-weight: 200;
+    }
+
+    nav.navbar a.active i {
+        font-weight: 900;
+    }
 }
